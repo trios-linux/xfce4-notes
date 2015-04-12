@@ -31,7 +31,7 @@ fi
 
 if [ ! -f $PKG ]; 
 then
-	wget http://archive.xfce.org/src/apps/$NAME/$VER_REPO/$PKG
+	wget http://archive.xfce.org/src/panel-plugins/$NAME/$VER_REPO/$PKG
 else
 	echo "$PKG exists, skipping download"
 fi
@@ -43,7 +43,7 @@ if [ "$1" = "-x" ];
 then
 	if [ ! -f $PKG ]; 
 	then
-		wget http://archive.xfce.org/src/apps/$NAME/$VER_REPO/$PKG
+		wget http://archive.xfce.org/src/panel-plugins/$NAME/$VER_REPO/$PKG
 	else
 		echo "$PKG exists, skipping download"
 	fi
@@ -58,7 +58,7 @@ if [ "$1" = "-x" ] && [ "$2" = "-r" ];
 then
 	if [ ! -f $PKG ]; 
 	then
-		wget http://archive.xfce.org/src/apps/$NAME/$VER_REPO/$PKG
+		wget http://archive.xfce.org/src/panel-plugins/$NAME/$VER_REPO/$PKG
 	else
 		echo "$PKG found, skipping download"
 	fi
@@ -73,7 +73,7 @@ if [ "$1" = "-x" ] && [ "$2" = "-m" ];
 then
 	if [ ! -f $PKG ]; 
 	then
-		wget http://archive.xfce.org/src/apps/$NAME/$VER_REPO/$PKG
+		wget http://archive.xfce.org/src/panel-plugins/$NAME/$VER_REPO/$PKG
 	else
 		echo "$PKG found, skipping download"
 	fi
