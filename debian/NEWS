@@ -1,0 +1,21 @@
+xfce4-notes-plugin (1.6.0-1) unstable; urgency=low
+
+  Notes for 1.4 plugin  are now stored in .config/xfce4/panel/notes.rc instead
+  of .config/xfce4/panel/xfce4-notes-plugin-*.rc so at startup they won't be
+  displayed. You can recover them as they are not deleted when the new version
+  starts.  .  More information can be found at
+  http://foo-projects.org/pipermail/goodies-dev/2006-November/000392.html
+
+  For 1.6 plugin, upstream author says:
+  - your old notes will not work
+  - your old configuration will not work either
+
+  Migrate your old data:
+  WINDOW_NAME="Notes (migrate)" && mkdir -p
+  ~/.local/share/notes/$WINDOW_NAME && grep '^note[0-9]*='
+  ~/.config/xfce4/panel/notes.rc | cut -d= -f2- | split -l 1 -d -
+  ~/.local/share/notes/$WINDOW_NAME/ && for notes in
+  ~/.local/share/notes/$WINDOW_NAME/* ; do echo -e $(cat $notes) > $notes
+  ; done
+
+ -- Yves-Alexis Perez <corsac@corsac.net>  Fri, 23 Nov 2007 08:45:10 +0100

@@ -1,0 +1,290 @@
+xfce4-notes-plugin (1.7.7-5+trios1) mia; urgency=medium
+
+  * Rebuild against xfce 4.12 for TRIOS
+
+ -- Filip Danilovic <filip@openmailbox.org>  Sun, 12 Apr 2015 22:51:42 +0200
+
+xfce4-notes-plugin (1.7.7-5) unstable; urgency=medium
+
+  * debian/rules:
+    - use autotools_dev addon to update config.{guess,sub}. The dh-autoreconf
+    entry in the previous changelog entry was actually never committed, so use
+    a minimal fix for Jessie. Thanks Peter Green for the patch and
+    pre-approval request.                              (really) closes: #765272
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 16 Nov 2014 21:26:12 +0100
+
+xfce4-notes-plugin (1.7.7-4) unstable; urgency=low
+
+  [ Evgeni Golov ]
+  * Correct Vcs-* URLs to point to anonscm.debian.org
+
+  [ Jackson Doak ]
+  * debian/copyright: Convert to Debian format 1.0
+  * debian/rules:
+    - Add option for verbose mode
+
+  [ Yves-Alexis Perez ]
+  * debian/control:
+    - update standards version to 3.9.6.
+  * debian/rules:
+    - call xdt-autogen before running configure to regenerate
+      config.{guess,sub} and gain support for new architectures closes: #765272
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Wed, 15 Oct 2014 21:19:49 +0200
+
+xfce4-notes-plugin (1.7.7-3) unstable; urgency=low
+
+  * debian/control:
+    - update standards version to 3.9.4.
+    - update debhelper build-dep to 9.
+    - drop version on xfce4-panel-dev build-dep, stable has Xfce 4.8 now.
+    - drop build-dep on hardening-includes. 
+  * debian/rules:
+    - enable parallel build.
+    - use dpkg/debhelper hardening support. 
+    - update paths for multiarch.
+  * debian/compat bumped to 9.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sat, 25 May 2013 17:02:48 +0200
+
+xfce4-notes-plugin (1.7.7-2) unstable; urgency=low
+
+  [ Lionel Le Folgoc ]
+  * Upload to unstable.
+  * debian/control:
+    - remove Simon and Emanuele from uploaders, thanks to them.
+    - bump xfce4-panel-dev b-dep to (>= 4.8.0).
+
+  [ Yves-Alexis Perez ]
+  * debian/control:
+    - update standards version to 3.9.2.
+    - drop cdbs build-dep. 
+
+ -- Lionel Le Folgoc <mrpouit@gmail.com>  Tue, 19 Apr 2011 23:16:11 +0200
+
+xfce4-notes-plugin (1.7.7-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - update standards version to 3.9.1.
+  * Switch to 3.0 (quilt) source format.
+  * debian/rules:
+    - pick {C,LD}FLAGS from dpkg-buildflags.
+    - add -O1, -z,defs and --as-needed to LDFLAGS.
+    - add hardening flags to {C,LD}FLAGS.
+    - ignore /usr/lib/xfce4/panel-plugins is dh_makeshlibs. 
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 27 Feb 2011 15:14:45 +0100
+
+xfce4-notes-plugin (1.7.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * Drop thunar-vfs support removed upstream:
+    - debian/control: do not build-dep on libthunar-vfs-dev
+    - debian/rules: do not pass --enable-fs-monitor to configure
+    (thanks Mike Massonnet for the patch)                       closes: #575586
+  * debian/xfce4-notes.install: updated to include theme files.
+  * debian/control: adding myself to uploaders.
+
+ -- Lionel Le Folgoc <mrpouit@gmail.com>  Fri, 23 Apr 2010 00:52:09 +0200
+
+xfce4-notes-plugin (1.7.2-2) unstable; urgency=low
+
+  * debian/control:
+    - drop build-dep on binutils-gold added by mistake, fix FTBFS where
+      binutils-gold isn't available.
+  * correct typo in NEWS.Debian.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Wed, 13 Jan 2010 21:18:27 +0100
+
+xfce4-notes-plugin (1.7.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - add build-dep on libunique-dev.
+    - add a new xfce4-notes binary package so users can run notes without
+      needing xfce4-panel.
+    - add proper Conflicts/Replaces.
+  * debian/rules rewritten using debhelper 7 because CDBS fails dh_install
+    --fail-missing when using multiple packages.
+  * bump debhelper build-dep because we use overrides.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Mon, 21 Dec 2009 23:44:10 +0100
+
+xfce4-notes-plugin (1.7.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/watch edited to track Xfce archive reorganisation.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Thu, 03 Sep 2009 21:06:35 +0200
+
+xfce4-notes-plugin (1.7.0-1) unstable; urgency=low
+
+  [ Evgeni Golov ]
+  * Fix Vcs-* fields, they were missing 'trunk' in the path.
+
+  [ Yves-Alexis Perez ]
+  * New upstream release.
+  * debian/control:
+    - update standards version to 3.8.2.
+  * debian/copyright:
+    - update licensing informations.
+  * debian/patches:
+    - 01_fix-implicit-pointer-conversion dropped.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Wed, 24 Jun 2009 08:33:14 +0200
+
+xfce4-notes-plugin (1.6.4-3) unstable; urgency=low
+
+  [ Evgeni Golov ]
+  * debian/control:
+    + Move to xfce section to match the override in the archive.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Tue, 05 May 2009 07:46:30 +0200
+
+xfce4-notes-plugin (1.6.4-2) unstable; urgency=low
+
+  * Upload to unstable.
+  * debian/control:
+    - update standards version to 3.8.1.
+    - bump debhelper build-dep to 7.
+  * debian/compat bumped to 7.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Mon, 04 May 2009 21:32:31 +0200
+
+xfce4-notes-plugin (1.6.4-1) experimental; urgency=low
+
+  * new upstream release.
+  * debian/watch: update url to report gz or bz2. Thanks Kibi!
+  * debian/control: 
+    - update standards version to 3.8.0.
+    - add build dep on intltool, libx11-dev, pkg-config, libgtk2.0-dev,
+      libxfcegui4-dev, libthunar-vfs-1-dev, libxfconf-0-dev
+    - add dep on ${misc:Depends}.
+  * debian/rules:
+    - enable fs monitoring.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sat, 28 Feb 2009 21:32:10 +0100
+
+xfce4-notes-plugin (1.6.2-2) unstable; urgency=low
+
+  * debian/patches: 01_fix-implicit-pointer-conversion added.   closes: #481972
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 25 May 2008 16:54:38 +0200
+
+xfce4-notes-plugin (1.6.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/rules: explicitely disable fs monitoring.
+  * debian/copyright: update dates and copyrights holders.
+  * debian/control: remove Rudy Godoy and Martin Loschwitz from Uploaders:.
+    Thanks for your work!
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Mon, 05 May 2008 20:17:31 +0200
+
+xfce4-notes-plugin (1.6.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Thu, 27 Dec 2007 23:43:26 +0100
+
+xfce4-notes-plugin (1.6.0-1) unstable; urgency=low
+
+  [ Simon Huggins ]
+  * debian/control: Move fake Homepage field to a real one now dpkg
+    supports it.
+  * Add Vcs-* headers to debian/control
+
+  [ Yves-Alexis Perez ]
+  * New upstream release.
+  * debian/NEWS: provide informations about migration from notes plugin 1.2
+    and 1.4.                                                    closes: #420733
+  * debian/control:
+    - updated standard versions to 3.7.3.
+    - updated my email address.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sat, 08 Dec 2007 06:32:48 +0100
+
+xfce4-notes-plugin (1.4.1-1) unstable; urgency=low
+
+  * New upstream relese.
+  * debian/control: 
+   - updated build-dep against Xfce 4.4.1
+   - removed gtk from build-dep as it's pulled by xfce4-panel-dev anyway.
+   - removed Jani from uploaders as he's not anymore in the team.
+
+ -- Yves-Alexis Perez <corsac@corsac.net>  Thu, 19 Apr 2007 17:54:59 +0100
+
+xfce4-notes-plugin (1.3.99.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright: updated download url.
+
+ -- Yves-Alexis Perez <corsac@corsac.net>  Sat, 23 Sep 2006 15:40:42 +0100
+
+xfce4-notes-plugin (1.2.3-2) unstable; urgency=low
+
+  * debian/copyright, debian/control: updated description, author and
+    copyright. 
+  * Build-dep on version of panel with correct shlibs.
+
+ -- Yves-Alexis Perez <corsac@corsac.net>  Wed, 26 Jul 2006 18:38:15 +0100
+
+xfce4-notes-plugin (1.2.3-1) unstable; urgency=low
+
+  * (Emanuele Rocca)
+    - New upstream release, ported to the new panel.             closes: #370111
+    - Updated standards version
+  * (Yves-Alexis Perez)
+    - debian/control: added build-deps on 4.3.90.2 (Xfce 4.4Beta2)
+    - debian/rules: don't relibtoolise the package
+    - debian/control: remove useless build-dep for relibtoolising
+
+ -- Emanuele Rocca <ema@debian.org>  Mon, 24 Jul 2006 12:30:01 +0200
+
+xfce4-notes-plugin (0.10.0-2) unstable; urgency=low
+
+  * Rebuilding to fix libxfcegui dependency
+  * Moving to unstable
+
+ -- Emanuele Rocca <ema@debian.org>  Mon, 20 Jun 2005 20:56:29 +0200
+
+xfce4-notes-plugin (0.10.0-1) experimental; urgency=low
+  
+  * New upstream release
+
+ -- Emanuele Rocca <ema@debian.org>  Tue, 29 Mar 2005 20:16:22 +0200
+
+xfce4-notes-plugin (0.9.7-5) unstable; urgency=low
+
+  * Package adopted by the Debian Xfce Maintainers (closes: #245122)
+  * Put the cdbs autotool update magic in place and the appropriate
+    build-depends.
+  * Change the case on Xfce appropriately.
+
+ -- Simon Huggins <huggie@earth.li>  Sun, 30 Jan 2005 18:07:40 +0000
+
+xfce4-notes-plugin (0.9.7-4) unstable; urgency=low
+
+  * Uploading with maintainer set to QA Group
+
+ -- Andrew Pollock <apollock@debian.org>  Sun, 16 May 2004 22:31:02 +1000
+
+xfce4-notes-plugin (0.9.7-3) unstable; urgency=low
+
+  * Remove bashism from debian/rules
+
+ -- Andrew Lau <netsnipe@users.sourceforge.net>  Sat,  8 Nov 2003 14:36:52 +1100
+
+xfce4-notes-plugin (0.9.7-2) unstable; urgency=low
+
+  * Remove libtool library and object.
+
+ -- Andrew Lau <netsnipe@users.sourceforge.net>  Fri,  7 Nov 2003 16:16:37 +1100
+
+xfce4-notes-plugin (0.9.7-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Andrew Lau <netsnipe@users.sourceforge.net>  Wed, 29 Oct 2003 21:55:38 +1100
